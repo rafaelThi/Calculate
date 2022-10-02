@@ -1,9 +1,13 @@
+import java.util.Scanner;
+
 public class Calculate {
     public static void main(String[] args) {
-        int number1 = Integer.parseInt(args[0]);
-        int number2 = Integer.parseInt(args[2]);
+        Scanner scanner = new Scanner(System.in);
+        int number1 = Integer.parseInt(scanner.nextLine() );
+        String operation = scanner.nextLine();
+        int number2 = Integer.parseInt(scanner.nextLine());
 
-        switch (args[1]){
+        switch (operation){
             case "+":
                 sum(number1, number2);
                 break;
@@ -25,14 +29,16 @@ public class Calculate {
         System.out.println(x + y);
     }
     static void subtraction(int x, int y){
-        if (x > y) {
+        if (x < y) {
             System.out.println(x - y);
+            return;
         }
         System.out.println(y - x);
     }
     static void division(int x, int y){
         if (y == 0) {
-            System.out.println("Nao e possivel dividir por Zero");
+            System.out.println("Nao e possivel dividir por Zero, tente novamente");
+            return;
         }
         double result = x / y;
         System.out.println(result);
